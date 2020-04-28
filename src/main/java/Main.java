@@ -47,6 +47,7 @@ public class Main {
         userService.save(user);
         System.out.print("\nsearching interlocutor for you...");
         while(user.getChatId()==null){
+            user = userService.findById(user.getId());
             User[] usersByTopic = userService.findAllByTopic(user.getTopic());
             boolean flag = false;
             for(User user1:usersByTopic){

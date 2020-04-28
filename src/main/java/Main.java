@@ -74,6 +74,7 @@ public class Main {
                 }
             }
         }
+        user = userService.findById(user.getId());
         Chat chat;
         final long id = user.getChatId();
         final User userHelper = user;

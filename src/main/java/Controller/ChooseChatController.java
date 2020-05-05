@@ -50,13 +50,6 @@ public class ChooseChatController extends JFrame implements ActionListener {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBounds(250, 100, 300, 200);
         this.add(scrollPane);
-        new Thread(() -> {
-            try {
-                loadListOfChats();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
 
         chatName = new JTextField();
         chatName.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -85,13 +78,20 @@ public class ChooseChatController extends JFrame implements ActionListener {
         c.add(createChat);
 
         setVisible(true);
+
+        new Thread(() -> {
+            while(true) {
+                try {
+                    Chat[] chats = chatService.findAll();
+                    chatList.setText("Available " + chats.length + " chats:\n");
+                    Stream.of(chats).forEach(chat -> chatList.append(chat.getName() + "\n\n"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
-    public void loadListOfChats() throws IOException {
-        Chat[] chats = chatService.findAll();
-        chatList.setText("Available "+chats.length+" chats:\n");
-        Stream.of(chats).forEach(chat->chatList.append(chat.getName()+"\n\n"));
-    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==moveToChat){
@@ -112,7 +112,6 @@ public class ChooseChatController extends JFrame implements ActionListener {
                 if(newChatName.getText().length()>=1 && chatService.findByName(newChatName.getText())==null) {
                     chatService.save(new Chat(new ArrayList<>(), newChatName.getText()));
                     chatName.setText("");
-                    loadListOfChats();
                 }
             } catch (IOException ex) {
                 ex.printStackTrace();

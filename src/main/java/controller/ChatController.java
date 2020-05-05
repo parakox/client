@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import model.entity.Chat;
 import model.entity.Message;
@@ -13,7 +13,6 @@ import java.util.List;
 
 import service.ChatService;
 import service.MessageService;
-import service.UserService;
 
 public class ChatController extends JFrame implements ActionListener {
     private final ChatService chatService = ChatService.getChatService();

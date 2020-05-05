@@ -2,7 +2,7 @@ package model.constants;
 
 public final class Constants {
 
-    public static final String ADDRESS = "http://localhost:8080/";
+    public static final String ADDRESS = "http://91.124.55.155:8090/";
 
     public static final String GET_USERS_BY_TOPIC = ADDRESS+"usersByTopic?topic=%s";
 

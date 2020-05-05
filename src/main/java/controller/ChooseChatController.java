@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import model.entity.Chat;
 import model.entity.User;
@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Stream;
@@ -22,6 +21,7 @@ public class ChooseChatController extends JFrame implements ActionListener {
 
     private Container c;
     private JTextArea chatList;
+    private JLabel label;
     private JTextField chatName;
     private JTextField newChatName;
     private JButton moveToChat;
@@ -36,6 +36,11 @@ public class ChooseChatController extends JFrame implements ActionListener {
         setResizable(false);
         c = getContentPane();
         c.setLayout(null);
+
+        label = new JLabel();
+        label.setSize(300,25);
+        label.setLocation(300,20);
+        c.add(label);
 
         chatList = new JTextArea();
         chatList.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -80,11 +85,15 @@ public class ChooseChatController extends JFrame implements ActionListener {
         setVisible(true);
 
         new Thread(() -> {
+            int counter = 0;
             while(true) {
                 try {
                     Chat[] chats = chatService.findAll();
-                    chatList.setText("Available " + chats.length + " chats:\n");
-                    Stream.of(chats).forEach(chat -> chatList.append(chat.getName() + "\n\n"));
+                    label.setText("Available " + chats.length + " chats:");
+                    for(int i=counter;i<chats.length;i++){
+                        chatList.append(chats[i].getName()+"\n\n");
+                    }
+                    counter = chats.length;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

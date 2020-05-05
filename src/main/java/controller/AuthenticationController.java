@@ -1,9 +1,6 @@
-package Controller;
+package controller;
 
-import model.constants.Constants;
-import model.entity.Chat;
 import model.entity.User;
-import service.ChatService;
 import service.UserService;
 
 import javax.swing.*;

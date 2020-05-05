@@ -28,7 +28,7 @@ public class ChatController extends JFrame implements ActionListener {
     private JPanel southPanel;
     private JFrame frame;
 
-    public ChatController(User user,Chat chat) throws IOException {
+    public ChatController(User user,Chat chat) {
         this.user = user;
         this.chat = chat;
 

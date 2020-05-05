@@ -50,7 +50,13 @@ public class ChooseChatController extends JFrame implements ActionListener {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBounds(250, 100, 300, 200);
         this.add(scrollPane);
-        loadListOfChats();
+        new Thread(() -> {
+            try {
+                loadListOfChats();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
         chatName = new JTextField();
         chatName.setFont(new Font("Arial", Font.PLAIN, 15));

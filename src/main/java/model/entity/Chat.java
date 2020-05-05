@@ -1,5 +1,6 @@
 package model.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,14 +10,14 @@ import java.util.Set;
 
 public class Chat {
 
-    @JsonProperty("id")
+    @JsonProperty("chat_id")
     private Long id;
 
     @JsonProperty("messages")
-    private List<Message> messageList;
+    private List<Message> messages;
 
-    @JsonProperty("users")
-    private Set<Long> userIdList;
+    @JsonProperty("name")
+    private String name;
 
     public static Chat fromJson(String json) throws JsonProcessingException {
         try {
@@ -26,9 +27,9 @@ public class Chat {
         }
     }
 
-    public Chat(List<Message> messageList,Set<Long> userIdList){
-        this.messageList=messageList;
-        this.userIdList=userIdList;
+    public Chat(List<Message> messages,String name){
+        this.messages=messages;
+        this.name = name;
     }
 
     public Chat(){
@@ -39,20 +40,20 @@ public class Chat {
         return id;
     }
 
-    public List<Message> getMessageList() {
-        return messageList;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public Set<Long> getUserIdList() {
-        return userIdList;
+    public String getName() {
+        return name;
     }
 
-    public void addUserId(Long id){
-        userIdList.add(id);
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void addMessage(Message message){
-        messageList.add(message);
+        messages.add(message);
     }
 
     public String toJson() throws JsonProcessingException {

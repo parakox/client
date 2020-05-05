@@ -1,17 +1,29 @@
 package model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class Message {
 
-    @JsonProperty("user_id")
-    private Long userId;
+    @JsonProperty("message_id")
+    private Long id;
+
+    @JsonProperty("user_name")
+    private String userName;
+
+    @JsonProperty("chat_id")
+    private Long chatId;
 
     @JsonProperty("text")
     private String text;
 
-    public Message(Long userId,String text){
-        this.userId=userId;
+
+    public Message(String userName,Long chatId,String text){
+        this.userName = userName;
+        this.chatId = chatId;
         this.text=text;
     }
 
@@ -19,11 +31,23 @@ public class Message {
 
     }
 
+    public String toJson() throws JsonProcessingException {
+        return new ObjectMapper().writeValueAsString(this);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     public String getText() {
         return text;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getUserName() {
+        return userName;
+    }
+
+    public Long getChatId() {
+        return chatId;
     }
 }

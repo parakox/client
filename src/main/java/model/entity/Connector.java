@@ -4,6 +4,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -27,7 +28,7 @@ public class Connector {
     public static void set(StringEntity stringEntity, HttpPost post) throws IOException {
         post.setEntity(stringEntity);
         post.setHeader("Content-type", "application/json");
-        HttpClient httpClient = HttpClientBuilder.create().build();
+        HttpClient httpClient = HttpClients.createDefault();
         httpClient.execute(post);
     }
 }

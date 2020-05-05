@@ -4,11 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import model.constants.Constants;
 import model.entity.Chat;
 import model.entity.Connector;
-import model.entity.User;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 
 import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ChatService {
@@ -18,7 +18,6 @@ public class ChatService {
     public static ChatService getChatService() {
         return chatService;
     }
-
     private ChatService(){
 
     }
@@ -31,6 +30,12 @@ public class ChatService {
 
     public Chat findById(Long id) throws IOException {
         URL url = new URL(String.format(Constants.GET_CHAT_BY_ID,id));
+        StringBuilder data = Connector.get(url);
+        return Chat.fromJson(String.valueOf(data));
+    }
+
+    public Chat findByName(String name) throws IOException {
+        URL url = new URL(String.format(Constants.GET_CHAT_BY_NAME,name));
         StringBuilder data = Connector.get(url);
         return Chat.fromJson(String.valueOf(data));
     }

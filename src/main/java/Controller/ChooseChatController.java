@@ -56,7 +56,7 @@ public class ChooseChatController extends JFrame implements ActionListener {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
+        }).start();
 
         chatName = new JTextField();
         chatName.setFont(new Font("Arial", Font.PLAIN, 15));

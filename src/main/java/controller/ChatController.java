@@ -51,7 +51,7 @@ public class ChatController extends JFrame implements ActionListener {
         left.anchor = GridBagConstraints.WEST;
         GridBagConstraints right = new GridBagConstraints();
         right.anchor = GridBagConstraints.EAST;
-        right.weightx = 2.0;
+        right.weightx = 4.0;
 
         southPanel.add(messageBox, left);
         southPanel.add(sendMessage, right);
@@ -60,7 +60,7 @@ public class ChatController extends JFrame implements ActionListener {
         frame.add(new JScrollPane(chatBox), BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        frame.setSize(470, 300);
+        frame.setSize(500, 300);
         final long chat_id = chat.getId();
         new Thread(() -> {
             int last = 0;

@@ -1,7 +1,9 @@
 package controller;
 
+import model.IoCSingleton.IoCSingleton;
 import model.entity.Chat;
 import model.entity.User;
+import org.springframework.context.ApplicationContext;
 import service.ChatService;
 import service.UserService;
 
@@ -16,6 +18,7 @@ import java.util.stream.Stream;
 public class ChooseChatController extends JFrame implements ActionListener {
     private ChatService chatService = ChatService.getChatService();
     private UserService userService = UserService.getUserService();
+    private ApplicationContext applicationContext = IoCSingleton.getApplicationContext();
 
     private User user;
 
@@ -118,8 +121,12 @@ public class ChooseChatController extends JFrame implements ActionListener {
             }
         }else if(e.getSource()==createChat){
             try {
-                if(newChatName.getText().length()>=1 && chatService.findByName(newChatName.getText())==null) {
-                    chatService.save(new Chat(new ArrayList<>(), newChatName.getText()));
+                if(newChatName.getText().length()>0 && chatService.findByName(newChatName.getText())==null) {
+                    Chat chat = (Chat) applicationContext.getBean("chat");
+                    chat.setMessages(new ArrayList<>());
+                    chat.setName(newChatName.getText());
+                    System.out.println(chat.getName());
+                    chatService.save(chat);
                     chatName.setText("");
                 }
             } catch (IOException ex) {

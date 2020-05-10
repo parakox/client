@@ -1,5 +1,6 @@
 package controller;
 
+import model.IoCSingleton.IoCSingleton;
 import model.entity.Chat;
 import model.entity.Message;
 import model.entity.User;
@@ -9,14 +10,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
 import service.ChatService;
 import service.MessageService;
 
 public class ChatController extends JFrame implements ActionListener {
     private final ChatService chatService = ChatService.getChatService();
     private final MessageService messageService = MessageService.getMessageService();
+    private final ApplicationContext applicationContext = IoCSingleton.getApplicationContext();
 
     private final User user;
     private Chat chat;
@@ -83,7 +87,10 @@ public class ChatController extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         if (messageBox.getText().length() >= 1) {
             try {
-                Message message = new Message(user.getNickname(),chat.getId(),messageBox.getText());
+                Message message = (Message) applicationContext.getBean("message");
+                message.setUserName(user.getNickname());
+                message.setChatId(chat.getId());
+                message.setText(messageBox.getText());
                 messageService.saveMessage(message);
             } catch (IOException e) {
                 e.printStackTrace();

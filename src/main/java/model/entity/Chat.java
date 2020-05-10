@@ -1,13 +1,13 @@
 package model.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Set;
 
+@Component
 public class Chat {
 
     @JsonProperty("chat_id")
@@ -27,11 +27,6 @@ public class Chat {
         }
     }
 
-    public Chat(List<Message> messages,String name){
-        this.messages=messages;
-        this.name = name;
-    }
-
     public Chat(){
 
     }
@@ -44,16 +39,16 @@ public class Chat {
         return messages;
     }
 
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void addMessage(Message message){
-        messages.add(message);
     }
 
     public String toJson() throws JsonProcessingException {

@@ -2,10 +2,11 @@ package model.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
-
+@Component
 public class User {
 
     @JsonProperty("user_id")
@@ -20,12 +21,6 @@ public class User {
     @JsonProperty("chat_id")
     private Long chatId;
 
-
-    public User(String nickname,String password,Long chatId){
-        this.nickname = nickname;
-        this.password = password;
-        this.chatId = chatId;
-    }
 
     public User(){
 
@@ -45,6 +40,10 @@ public class User {
 
     public String getNickname() {
         return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getPassword() {

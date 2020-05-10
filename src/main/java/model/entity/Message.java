@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class Message {
 
     @JsonProperty("message_id")
@@ -19,13 +20,6 @@ public class Message {
 
     @JsonProperty("text")
     private String text;
-
-
-    public Message(String userName,Long chatId,String text){
-        this.userName = userName;
-        this.chatId = chatId;
-        this.text=text;
-    }
 
     public Message(){
 
@@ -43,11 +37,23 @@ public class Message {
         return text;
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
     public String getUserName() {
         return userName;
     }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public Long getChatId() {
         return chatId;
+    }
+
+    public void setChatId(Long chatId) {
+        this.chatId = chatId;
     }
 }

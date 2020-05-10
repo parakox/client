@@ -1,6 +1,8 @@
 package controller;
 
+import model.IoCSingleton.IoCSingleton;
 import model.entity.User;
+import org.springframework.context.ApplicationContext;
 import service.UserService;
 
 import javax.swing.*;
@@ -11,6 +13,7 @@ import java.io.IOException;
 
 public class AuthenticationController extends JFrame implements ActionListener {
     private UserService userService = UserService.getUserService();
+    private ApplicationContext applicationContext = IoCSingleton.getApplicationContext();
 
     private Container c;
     private JLabel title;
@@ -78,8 +81,12 @@ public class AuthenticationController extends JFrame implements ActionListener {
             String nickname = tname.getText();
             String password = tpassword.getText();
             try {
-                if(userService.findByNickname(nickname)==null) {
-                    userService.save(new User(nickname, password,null));
+                if(nickname.length()>0 && password.length()>0 && userService.findByNickname(nickname)==null) {
+                    User user = (User) applicationContext.getBean("user");
+                    user.setNickname(nickname);
+                    user.setPassword(password);
+                    user.setChatId(null);
+                    userService.save(user);
                     setVisible(false);
                     dispose();
                     new ChooseChatController(userService.findByNickname(nickname));

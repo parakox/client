@@ -125,7 +125,6 @@ public class ChooseChatController extends JFrame implements ActionListener {
                     Chat chat = (Chat) applicationContext.getBean("chat");
                     chat.setMessages(new ArrayList<>());
                     chat.setName(newChatName.getText());
-                    System.out.println(chat.getName());
                     chatService.save(chat);
                     chatName.setText("");
                 }

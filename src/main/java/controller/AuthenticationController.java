@@ -4,6 +4,7 @@ import model.IoCSingleton.IoCSingleton;
 import model.entity.User;
 import org.springframework.context.ApplicationContext;
 import service.UserService;
+import serviceImpl.UserServiceImpl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class AuthenticationController extends JFrame implements ActionListener {
-    private UserService userService = UserService.getUserService();
+    private UserService userService = UserServiceImpl.getUserService();
     private ApplicationContext applicationContext = IoCSingleton.getApplicationContext();
 
     private Container c;

@@ -10,16 +10,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import service.ChatService;
 import service.MessageService;
+import serviceImpl.ChatServiceImpl;
+import serviceImpl.MessageServiceImpl;
 
 public class ChatController extends JFrame implements ActionListener {
-    private final ChatService chatService = ChatService.getChatService();
-    private final MessageService messageService = MessageService.getMessageService();
+    private final ChatService chatService = ChatServiceImpl.getChatService();
+    private final MessageService messageServiceImpl = MessageServiceImpl.getMessageServiceImpl();
     private final ApplicationContext applicationContext = IoCSingleton.getApplicationContext();
 
     private final User user;
@@ -91,7 +92,7 @@ public class ChatController extends JFrame implements ActionListener {
                 message.setUserName(user.getNickname());
                 message.setChatId(chat.getId());
                 message.setText(messageBox.getText());
-                messageService.saveMessage(message);
+                messageServiceImpl.saveMessage(message);
             } catch (IOException e) {
                 e.printStackTrace();
             }

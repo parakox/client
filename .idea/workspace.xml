@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca2d119b-6bf6-4eb2-bc0c-1318b08c8a35" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceImpl/ChatServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceImpl/MessageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceImpl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChatController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChooseChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/constants/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -95,6 +103,12 @@
       <workItem from="1588754266578" duration="15000" />
       <workItem from="1589119278643" duration="1984000" />
       <workItem from="1589122606078" duration="462000" />
+      <workItem from="1589123268952" duration="152000" />
+      <workItem from="1589123868274" duration="36000" />
+      <workItem from="1589129921897" duration="42000" />
+      <workItem from="1589129966302" duration="1000" />
+      <workItem from="1589299179485" duration="126000" />
+      <workItem from="1589535455079" duration="623000" />
     </task>
     <task id="LOCAL-00001" summary="fff">
       <created>1588076453847</created>
@@ -159,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589121246059</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="last update">
+      <created>1589123328024</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1589123328024</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,30 +207,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="590" y="208" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588663783322" />
+    <state x="537" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589535724114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="537" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589535724114" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588576280756">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588576280756" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1589121244992">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1589123326623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589121244992" />
-    <state width="1877" height="255" key="GridCell.Tab.0.bottom" timestamp="1589123067716">
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589123326623" />
+    <state width="1877" height="255" key="GridCell.Tab.0.bottom" timestamp="1589123903834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="255" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589123067716" />
-    <state width="1877" height="255" key="GridCell.Tab.0.center" timestamp="1589123067716">
+    <state width="1877" height="255" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589123903834" />
+    <state width="1877" height="255" key="GridCell.Tab.0.center" timestamp="1589123903833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="255" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589123067716" />
-    <state width="1877" height="255" key="GridCell.Tab.0.left" timestamp="1589123067716">
+    <state width="1877" height="255" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589123903833" />
+    <state width="1877" height="255" key="GridCell.Tab.0.left" timestamp="1589123903833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="255" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589123067716" />
-    <state width="1877" height="255" key="GridCell.Tab.0.right" timestamp="1589123067716">
+    <state width="1877" height="255" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589123903833" />
+    <state width="1877" height="255" key="GridCell.Tab.0.right" timestamp="1589123903834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="255" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589123067716" />
+    <state width="1877" height="255" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589123903834" />
     <state width="1877" height="312" key="GridCell.Tab.1.bottom" timestamp="1588586588807">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -234,14 +259,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589122759935" />
-    <state x="655" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1589123268520">
+    <state x="655" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1589129927266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589123268520" />
-    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589123307347">
+    <state x="655" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589129927266" />
+    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589536078056">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589123307347" />
+    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589536078056" />
     <state x="640" y="202" key="spring file set editor" timestamp="1589119408233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

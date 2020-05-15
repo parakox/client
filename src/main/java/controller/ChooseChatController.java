@@ -6,6 +6,8 @@ import model.entity.User;
 import org.springframework.context.ApplicationContext;
 import service.ChatService;
 import service.UserService;
+import serviceImpl.ChatServiceImpl;
+import serviceImpl.UserServiceImpl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,11 +15,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 public class ChooseChatController extends JFrame implements ActionListener {
-    private ChatService chatService = ChatService.getChatService();
-    private UserService userService = UserService.getUserService();
+    private ChatService chatService = ChatServiceImpl.getChatService();
+    private UserService userService = UserServiceImpl.getUserService();
     private ApplicationContext applicationContext = IoCSingleton.getApplicationContext();
 
     private User user;

@@ -11,11 +11,11 @@ import java.io.IOException;
 import java.net.URL;
 
 public interface UserService {
-    User[] findAllByTopic(String topic);
+    User[] findAllByTopic(String topic) throws IOException;
 
-    User findById(Long id);
+    User findById(Long id) throws IOException;
 
-    User findByNickname(String nickname);
+    User findByNickname(String nickname) throws IOException;
 
-    void save(User user);
+    void save(User user) throws IOException;
 }
